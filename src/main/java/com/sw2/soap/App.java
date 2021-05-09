@@ -133,7 +133,7 @@ public class App
         			
         			System.out.println("Escriba el nombre de la marca que quiera exportar");
         			nombreMarca = sc.nextLine();
-        			System.out.println(nombreMarca);
+        		
         			     
         			
         			try {
@@ -151,7 +151,26 @@ public class App
         			break;
         			
         		case 6:
+        			System.out.println("Escriba el nombre de la marca que quiera exportar");
+        			nombreMarca = sc.nextLine();
+        			System.out.println("Escriba el nombre del Producto que quiera exportar");
+        			nombreProducto = sc.nextLine();
         			
+        			     
+        			
+        			try {
+    
+        				servidor.exportarMarca(nombreMarca);
+        				servidor.exportarProducto(nombreMarca, nombreProducto);
+        				
+        				System.out.println("Se ha exportado el Producto seleccionado en el directorio /Cliente en el home de tu usuario");
+        				
+        		
+        				
+        			}catch (Exception e){
+            				System.out.println("No se ha encontrado la marca o productos escrita");
+            				e.printStackTrace();
+            			}
         			break;
         			
         		case 7:
