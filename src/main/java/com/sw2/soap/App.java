@@ -131,15 +131,16 @@ public class App
         			
         		case 5:
         			
-        			System.out.println("Escriba el nombre de la marca que quiera recibir");
+        			System.out.println("Escriba el nombre de la marca que quiera exportar");
         			nombreMarca = sc.nextLine();
         			System.out.println(nombreMarca);
         			     
         			
         			try {
+    
+        				servidor.exportarMarca(nombreMarca);
         				
-        				marca=servidor.devolverMarca(nombreMarca);
-        		
+        				System.out.println("Se ha exportado una Marca en el directorio /Cliente en el home de tu usuario");
         				
         		
         				
