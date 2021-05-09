@@ -141,7 +141,7 @@ public class App
         				marca=servidor.devolverMarca(nombreMarca);
         		
         				
-        				marshallerCliente(marca,nombreMarca);
+        		
         				
         			}catch (Exception e){
             				System.out.println("No se ha encontrado la marca escrita");
@@ -181,45 +181,6 @@ public class App
         }
         
         }
-}
-	
-private Marca unmarshallerMarcaCliente (String nombreMarca) throws JAXBException {
-		
-		Marca marca = null;
-		String directorio = System.getProperty("user.home");
-		//Hacemos el Unmarshalling
-		JAXBContext context = JAXBContext.newInstance(Marca.class);
-		Unmarshaller u = context.createUnmarshaller();
-		
-		File XMLfile = new File( directorio + "/" + nombreMarca + ".xml");
-
-		marca = (Marca) u.unmarshal(XMLfile);
-		return marca;
-	}
-
-private static void marshallerCliente(Object objetito,String nombre) throws JAXBException {
-	
-	String directorio = System.getProperty("user.home");
-	
-	directorio=directorio+"/Cliente";
-	Class tipo = objetito.getClass();
-	JAXBContext context;
-	System.out.println(tipo.getSimpleName());
-	
-	if(tipo.getSimpleName() =="Marca") {
-	//Hacemos el Marshalling
-	context = JAXBContext.newInstance(Marca.class);
-	}
-	else {
-		context = JAXBContext.newInstance(Producto.class);
-	}
-	Marshaller m = context.createMarshaller();
-	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
-	
-	File XMLfile = new File(directorio + "/"+ nombre + ".xml");
-	m.marshal(objetito, XMLfile);
-	
-	
 }
 
 	
