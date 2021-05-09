@@ -175,15 +175,27 @@ public class App
         			
         		case 7:
         			
+        			System.out.println("Escriba el nombre de la marca que quiera recibir");
+        			nombreMarca = sc.nextLine();
+
+        			try {
+    
+        				servidor.importarMarca(nombreMarca);
+        				
+        				System.out.println("Se ha importado una Marca en el directorio /Servidor en el home de tu usuario");
+        				
+        		
+        				
+        			}catch (Exception e){
+            				System.out.println("No se ha encontrado la marca escrita");
+            				e.printStackTrace();
+            			}
         			break;
         			
         		case 8:
         			
         			break;
         			
-        		case 9:
-        			
-        			break;
         			
         		default:
     				System.out.println("Opción no válida\n");
